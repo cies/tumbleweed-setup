@@ -25,13 +25,13 @@ Sometimes also have to install 1Password (password manager), the only non open s
 
 ### General
 
-* Startup: Restore previous session
+* Startup: check *Open previous windows and tabs*
 * Tabs: Ctrl+Tab cycles through tabs in recently used order
 * Downloads: Always ask where
 
 ### Privicy & Security
 
-* Logins and Passwords: DONT Ask to save logins and passwords for websites
+* Logins and Passwords: DONT Ask to save logins and passwords for websites (set automatically when installing a password manager)
 
 * Permissions:
    * Location -> Block new requests
