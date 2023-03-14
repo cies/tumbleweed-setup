@@ -79,7 +79,7 @@ These steps are fundamental to the per topic READMEs and/or my sanity.
 I'm blind without these, and the rest of the READMEs may require them.
 
 ```bash
-sudo zypper install git tig htop iotop ripgrep xinput
+sudo zypper install git tig htop iotop ripgrep xinput make
 ```
 
 ### Get `/usr/local/{bin,share,src}` ready
