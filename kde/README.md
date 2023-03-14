@@ -15,8 +15,6 @@ This makes CAPS an extra Ctrl, AltGr the compose key (the way to type special ch
 
 ```bash
 cat > ~/.config/kxkbrc << EOF 
-[$Version]
-update_info=kxkb.upd:remove-empty-lists,kxkb.upd:add-back-resetoptions,kxkb_variants.upd:split-variants
 [Layout]
 Options=caps:ctrl_modifier,compose:ralt,ctrl:swap_rwin_rctl
 ResetOldOptions=true
@@ -88,29 +86,29 @@ Find one, put it in `~/Pictures/wallpaper` and use both for:
 
 Switch the start menu to "Application menu" (right-click on the SUSE lizzard logo in bottom-left > `Show Alternatives...`).
 
-Add the following widget/applets/plasmoids to the panel though `Add Widgets...` > `Add New Widgets...`: *System Load Viewer*.
+Add the following widget/applets/plasmoids to the panel though `Add Widgets...` > `Get New Widgets...` > `Download New Plasma Widgets`: *System Load Viewer*.
 
 From left to right:
 * Application Menu
-* NOT a pager (remove it)
+* NOT a `Pager` (remove it, easiest by reducing the number of virtual desktops to 1)
 * Task Manager
 * System Load Viewer (love this)
 * System Tray
 * Clock
+* NOT the `Peek at Desktop` button
 
 Now adjust the height of the pannel so that the icons look best (not too much out of line), for that is ~32 pixels.
 
 Configure the *System Load Viewer* (right-click the widget and choose `Configure System Load Viewer...`) as follows:
 * Set compact bar (first!)
 * Select all but cache in "Show:"
-* Colors: Set colors manually
-* Maybe tweak the colors a little...
+* Colors: Set colors manually and tweak the colors
 * WISH: it'd also show network (aggregated in/out) and storage (aggregated i/o)
 
 Configure the *Digital Clock* (right-click the widget and choose "Configure Digital Clock...") as follows:
 * Time display: 24 hour
-* Date format: Custom, namely: `yyyy-MM-dd`
-* Font style: make sure "bold" (the "B") is selected
+* Date format: Custom, namely: `ddd yyyy-MM-dd`
+* Font style: `Manual` > `Choose Style...` > select "Bold"
 
 
 ## System Settings
@@ -166,7 +164,6 @@ To set:
 Disable background services that I consider unneeded:
 * SMB Watcher
 * Wacom Tablet
-* Wacom Daemon
 * Thunderbolt device monitor
 * Write Daemon
 
