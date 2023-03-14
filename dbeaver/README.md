@@ -1,7 +1,7 @@
 dbeaver
 =======
 
-A great tool for interfacing with (remote) databases. It's not available by default so we download the package from the vendor.
+A great tool for interfacing with (remote) databases. It's not available in OpenSUSE's default repos so we download the package directly from the vendor.
 
 ```sh
 cd /tmp
