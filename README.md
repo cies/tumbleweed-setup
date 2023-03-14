@@ -123,5 +123,5 @@ EOF
 
 See the on topic READMEs in the sub directories.
 
-Usually I start with `kde` and `zsh` to avoid annoyances getting the others done.
+Usually I start with `kde`, `zsh` and `firefox` to avoid annoyances getting the others done.
 
