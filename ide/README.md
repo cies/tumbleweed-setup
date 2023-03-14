@@ -14,12 +14,13 @@ rmdir $DIR
 ./jetbrains-toolbox
 ```
 
-When it runs click the settings icon (gear shape in the top-right) to:
+When it runs click the bolt-shaped icon and choose `Settings` to:
 
-* Set the "Tools install location" (I rather not have 3rd party binaries in my home dir) to: `/usr/local/share/JetBrains/Toolbox`
-* Improve privacy by not allowing data sharing.
-* Disable "Launch Toolbox App at system startup", to conserve valuable resources.
+* Disable "Launch Toolbox App at system startup", to conserve valuable resources
+* Improve privacy by disabling "Send anonymous usage statistics to JetBrains"
+* Set the "Tools install location" (I rather not have 3rd party binaries in my home dir) to: `/usr/local/share/JetBrains/Toolbox` and click `Apply`
+* Set the "Shell scrips location" to: `/usr/local/bin` and click `Apply`
 
 And install you IDE of choice. I do *IntellJ IDEA Community Edition*.
 
-When done downloading close the app by *settings icon -> Quit* or `CTRL-Q`.
+When done downloading close the app by clicking the bolt-shaped icon and choosing `Quit` or `CTRL-Q`.
