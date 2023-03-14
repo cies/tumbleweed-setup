@@ -6,3 +6,4 @@ Because one browser (Firefox, yay) is not enough these days.
 sudo zypper install chromium
 ```
 
+Thanks OpenSUSE for not distributing this as Flatpak or Snap package.
