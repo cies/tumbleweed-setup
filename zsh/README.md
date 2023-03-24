@@ -21,18 +21,19 @@ Finally add some config to `~/.zshrc` with:
 cat >> ~/.zshrc << EOF
 PURE_PROMPT_SYMBOL="$"
 
-zinit for \
-    light-mode  zsh-users/zsh-autosuggestions \
-    light-mode  zdharma-continuum/fast-syntax-highlighting \
-                zsh-users/zsh-completions \
-                zdharma-continuum/history-search-multi-word \
-    pick"async.zsh" src"pure.zsh" \
+zinit for \\
+    light-mode  zsh-users/zsh-autosuggestions \\
+    light-mode  zdharma-continuum/fast-syntax-highlighting \\
+                zsh-users/zsh-completions \\
+                zdharma-continuum/history-search-multi-word \\
+    pick"async.zsh" src"pure.zsh" \\
                 sindresorhus/pure
 
-zinit wait lucid for \
-        OMZ::lib/git.zsh \
-  atload"unalias grv" \
-        OMZ::plugins/git/git.plugin.zsh
+zinit wait lucid for \\
+        OMZ::lib/git.zsh \\
+  atload"unalias grv" \\
+        OMZ::plugins/git/git.plugin.zsh \\
+        OMZ::plugins/ssh-add/ssh-add.plugin.zsh
 
 # Binary release in archive, from GitHub-releases page.
 # After automatic unpacking it provides program "fzf".
