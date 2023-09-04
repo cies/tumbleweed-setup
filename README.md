@@ -48,9 +48,9 @@ sudo mkfs.vfat /dev/sdaX
 Where `X` is the number of the just created extra partition (use `lsblk` to find it).
 
 
-## Installing Kubuntu
+## Running the installer
 
-When installing choose these options:
+When installing (by booting from the just created USB drive) choose these options:
 
 * Keyboard layout variant: US
 * What to install: Plasma
