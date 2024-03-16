@@ -61,12 +61,16 @@ When installing (by booting from the just created USB drive) choose these option
 |--   /dev/nvme0n1p1     0.55 GB   F         fat     EFI System Partition    /boot/efi
 |--   /dev/nvme0n1p2    15.00 GB   F         swap    Swap Partition          <swap>
 |--   /dev/nvme0n1p3     1.20 GB   F         ext4    Ext4 Partition          /boot
-\--   /dev/nvme0n1p4   900.00 GB   F   ENC   btrfs   Btrfs Partition         /
-      \--   @/home     900.00 GB                     Btrfs Subvolume         /home
+|--   /dev/nvme0n1p4   888.00 GB   F   ENC   ext4    Ext4 Partition          /home
+\--   /dev/nvme0n1p5   999.00 GB   F   ENC   btrfs   Btrfs Partition         /
 ```
 
-We assume a total reinstall, so every partition should be formatted (`F`).
-The 900 GB merely means "the rest of the disk". Only the btrfs partition should be encrypted.
+We assume a total reinstall, so every partition should be formatted (`F`). When installing over another installation you may want to avoid formatting your `/home` partition.
+The 888 and 999 GB needs to be replaced by what you find suitable for these two paritions. For the root partition (`/`) you need at least 100 GB nowadays.
+
+Make sure to encrypt the root (`/`) and `/home` partition. When doing so with the same passphrase you will only need to provide the passphrase once on boot.
+
+**NOTE**: Encrypting the `/boot` and `<swap>` partitions will reduce several other attack vectors, where one installs tainted kernel/initramfs (on `/boot`) or tainted memory image (which is saved to `<swap>` when hibenating) by which valuable data can be stolen. These attacks are far more involved (expensive) and thus far less likely. Encrypting the `/boot` and `<swap>` partitions comes at a cost: you need to provide your disk encryption passphrase several times at boot, or add some complex and brittle passphrase memoization to the boot process (which is [not trivial](https://en.opensuse.org/SDB:Encrypted_root_file_system)).
 
 
 ## Generic setup
