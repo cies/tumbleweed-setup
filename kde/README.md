@@ -3,10 +3,8 @@
 Some tools that are not installed by default:
 
 ```
-sudo zypper install kompare ktorrent kolourpaint kturtle ksysguard5
+sudo zypper install kompare ktorrent kolourpaint kturtle
 ```
-
-The `ksysguard5` is a dependency of the later installed "System Load Viewer" panel applet.
 
 
 ## Setup the keyboard mapping
@@ -62,24 +60,13 @@ After this the NetworkManager will save wifi passwords unencrypted in `/etc/Netw
 This makes it easy to [migrate wifi passwords to another system](../wifi-passwords/README.md).
 
 
-## Disabling desktop search engine `baloo`
-
-This is a background service for building a personal full text search index. It uses quite a bit of resources and I rarely use it, so lets disable it:
-
-```bash
-balooctl disable
-```
-
-Removing all packages related to `baloo` is not easy as it is a dependecy for several core parts of KDE. It is not taking a lot of space, so it is safe to ignore. 
-
-
 ## Changing the wallpaper
 
 Find one, put it in `~/Pictures/wallpaper` and use both for:
 
 * The current display's background
 * Any other backgrounds for displays you may have plugged in
-* An in two places in System Settings (see the section below
+* And in `System Settings` > `Security & Privacy` > `Screen Locking` > `Appearance` > `Configure...`
 
 
 ## Set up the panel with the *System Load Viewer* widget
