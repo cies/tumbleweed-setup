@@ -38,11 +38,17 @@ To add an aditional partition to the USB drive to use for storage run:
 sudo cfdisk /dev/sda
 ```
 
-Create an additional partition that uses all empty space, set the type to `W95 FAT32 LBA` and write the table to disk.
+Create an additional partition that uses all empty space, set the type to `W95 FAT32 LBA` for interoperability with other OSes (set it to `EXT4` when only using it from Linux) and write the table to disk.
 Then format the partition with:
 
 ```bash
 sudo mkfs.vfat /dev/sdaX
+```
+
+Or (when going with EXT4):
+
+```bash
+sudo mkfs.ext4 /dev/sdaX
 ```
 
 Where `X` is the number of the just created extra partition (use `lsblk` to find it).
