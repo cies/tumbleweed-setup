@@ -3,9 +3,11 @@
 Install and setup the bare dependecies:
 
 ```bash
-sudo zypper install -y zsh fzf ripgrep xclip 
+sudo zypper install -y zsh git fzf ripgrep xclip wl-clipboard
 sudo usermod -s /bin/zsh $USER
 ```
+
+**NOTE**: `wl-clipboard` does for Wayland what `xclip` does for Xorg.
 
 Zinit is used as plugin manager (to manage zsh-specific dependencies):
 
@@ -13,7 +15,7 @@ Zinit is used as plugin manager (to manage zsh-specific dependencies):
 bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 ```
 
-Skin setting up the additional annexes with `n`.
+Skip setting up the additional annexes with `n`.
 
 Finally add some config to `~/.zshrc` with:
 
@@ -57,17 +59,19 @@ zinit light trapd00r/LS_COLORS
 
 alias m=make
 
-# set PATH so it includes user's private bin if it exists
+# Sets PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
+# Sets PATH so it includes another private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 EOF
 ```
+
+Simply run `zsh` again to install and setup all that's required by the just pasted `zshrc`.
 
 Some interesting commands:
 
@@ -84,11 +88,15 @@ Some interesting commands:
 
 ### TODO
 
+These (and or Wayland equivalents):
+
+```
 alias "c=xclip"
 alias "v=xclip -o"
 alias "pbcopy=xclip"
 alias "pbpaste=xclip -o"
+```
 
-understand history better, and why it seems to not all come to the same place
+Also understand history better, and why it seems to not all come to the same place when performed on different tabs.
 
-quick directory jumping with fuzzy something
+How to do quick directory jumping with fuzzy something.
