@@ -92,6 +92,8 @@ I'm blind without these, and the rest of the READMEs may require them.
 sudo zypper install git tig htop iotop ripgrep xinput libinput-tools make zsh
 ```
 
+**NOTE**: `libinput-tools` can do for Wayland what `xinput` did for Xorg.
+
 ### Get `/usr/local/{bin,share,src}` ready
 
 Since I like to use that `/usr/local` for installing software as a normal user that is not managed by the package manager and should be available system-wide.
