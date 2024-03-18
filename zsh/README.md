@@ -34,8 +34,7 @@ zinit for \\
 zinit wait lucid for \\
         OMZ::lib/git.zsh \\
   atload"unalias grv" \\
-        OMZ::plugins/git/git.plugin.zsh \\
-        OMZ::plugins/ssh-add/ssh-add.plugin.zsh
+        OMZ::plugins/git/git.plugin.zsh
 
 # Binary release in archive, from GitHub-releases page.
 # After automatic unpacking it provides program "fzf".
@@ -44,7 +43,8 @@ zinit wait lucid for \\
 
 # Handle completions without loading any plugin, see "clist" command.
 # This one is to be ran just once, in interactive session.
-zinit creinstall %HOME/my_completions
+# NOTE: Commented out as it resulted in errors
+#zinit creinstall %HOME/my_completions
 
 # This makes Makefile target completions bearable
 zstyle ':completion:*:make:*:targets' call-command true # outputs all possible results for make targets
@@ -60,13 +60,13 @@ zinit light trapd00r/LS_COLORS
 alias m=make
 
 # Sets PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+if [ -d "\$HOME/bin" ] ; then
+    PATH="\$HOME/bin:\$PATH"
 fi
 
 # Sets PATH so it includes another private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [ -d "\$HOME/.local/bin" ] ; then
+    PATH="\$HOME/.local/bin:\$PATH"
 fi
 EOF
 ```
