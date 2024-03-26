@@ -23,18 +23,35 @@ Finally add some config to `~/.zshrc` with:
 cat >> ~/.zshrc << EOF
 PURE_PROMPT_SYMBOL="$"
 
-zinit for \\
-    light-mode  zsh-users/zsh-autosuggestions \\
-    light-mode  zdharma-continuum/fast-syntax-highlighting \\
-                zsh-users/zsh-completions \\
-                zdharma-continuum/history-search-multi-word \\
-    pick"async.zsh" src"pure.zsh" \\
+zinit for \
+    light-mode  zsh-users/zsh-autosuggestions \
+    light-mode  zdharma-continuum/fast-syntax-highlighting \
+                zsh-users/zsh-completions \
+                zdharma-continuum/history-search-multi-word \
+    pick"async.zsh" src"pure.zsh" \
                 sindresorhus/pure
 
-zinit wait lucid for \\
-        OMZ::lib/git.zsh \\
-  atload"unalias grv" \\
-        OMZ::plugins/git/git.plugin.zsh
+zinit wait lucid for \
+        OMZ::lib/git.zsh \
+        OMZ::plugins/ssh-agent \
+  atload"unalias grv" \
+        OMZ::plugins/git/git.plugin.zsh \
+        wfxr/forgit
+
+HISTFILE=${ZDOTDIR}/zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1                # all search results returned will be unique
+setopt incappendhistory                                 # add commmand to history as soon as it's entered
+setopt extendedhistory                                  # save command timestamp
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_SAVE_NO_DUPS                                # don't write duplicate entries in the history file
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_SPACE                                # prefix commands you don't want stored with a space
+HISTORY_IGNORE="(builtin *|exit|ls|r|open|pwd|q|x *|s *|cd *)"
+setopt correct                                          # spelling correction for commands
+
 
 # Binary release in archive, from GitHub-releases page.
 # After automatic unpacking it provides program "fzf".
