@@ -60,23 +60,21 @@ When installing (by booting from the just created USB drive) choose these option
 
 * Keyboard layout variant: US
 * What to install: Plasma
-* Partitioning (this setup does not encrypt the swap and boot partition, it makes the setup of "only one passphrase at boot" and "hibernate (suspend to disk)" a lot easier). The size of the swap partition should not be much smaller than your memory (as in hibernation RAM gets compressed before it is written to disk).
 
-```
-/dev/nvme0n1
-|--   /dev/nvme0n1p1     0.55 GB   F         fat     EFI System Partition    /boot/efi
-|--   /dev/nvme0n1p2    15.00 GB   F         swap    Swap Partition          <swap>
-|--   /dev/nvme0n1p3     1.20 GB   F         ext4    Ext4 Partition          /boot
-|--   /dev/nvme0n1p4   888.00 GB   F   ENC   ext4    Ext4 Partition          /home
-\--   /dev/nvme0n1p5   999.00 GB   F   ENC   btrfs   Btrfs Partition         /
-```
+### Partitioning
 
-We assume a total reinstall, so every partition should be formatted (`F`). When installing over another installation you may want to avoid formatting your `/home` partition.
-The 888 and 999 GB needs to be replaced by what you find suitable for these two paritions. For the root partition (`/`) you need at least 100 GB nowadays.
+Previous version of this guide contianed bad advise, the partition/subvolume scheme "Guided setup" suggested by the installer is quite good.
+Make sure to "Enable Disk Encryption" and (not quite sure about this) "Enable Logical Volumen Management (LVM)", as explained [in this article](https://en.opensuse.org/SDB:Encrypted_root_file_system).
 
-Make sure to encrypt the root (`/`) and `/home` partition. When doing so with the same passphrase you will only need to provide the passphrase once on boot.
+I had to [read this document](https://en.opensuse.org/SDB:BTRFS) in order to find out how to setup Btrfs properly (basically to understand that the suggested layour by the "Guided setup" is really good).
 
-**NOTE**: Encrypting the `/boot` and `<swap>` partitions will reduce several other attack vectors, where one installs tainted kernel/initramfs (on `/boot`) or tainted memory image (which is saved to `<swap>` when hibenating) by which valuable data can be stolen. These attacks are far more involved (expensive) and thus far less likely. Encrypting the `/boot` and `<swap>` partitions comes at a cost: you need to provide your disk encryption passphrase several times at boot, or add some complex and brittle passphrase memoization to the boot process (which is [not trivial](https://en.opensuse.org/SDB:Encrypted_root_file_system)).
+This setup put the home folder on a separate partion which makes keeping your home files while reinstalling your system really easy.
+Putting you home folder on a subvolume of the Btrfs partition has the advantage that the disk space is then shared between all the Btrfs partition's subvolumes and the supervolume, at the expence of making reinstalling-while-keeping-the-home-folder a bit more tricky (you need to wipe the non-home subvolumes and snapshot by hand before reinstalling).
+
+When you encrypt multiple partitions (what is not needed when using the layout suggested by "Guided setup", as that uses LVM), using the same passphrase will ensure you only need to provide the passphrase once on boot (it's automatically tried for all encrypted partitions).
+
+**NOTE**: Encrypting the `/boot` and `<swap>` partitions will reduce several other attack vectors, where one installs tainted kernel/initramfs (on `/boot`) or tainted memory image (which is saved to `<swap>` when hibernating) by which valuable data can be stolen.
+These attacks are far more involved (expensive) and thus far less likely. Encrypting the `/boot` and `<swap>` partitions comes at a cost: you may need to provide your disk encryption passphrase several times at boot, or add some complex and brittle passphrase memoization to the boot process (which is [not trivial](https://en.opensuse.org/SDB:Encrypted_root_file_system)).
 
 
 ## Generic setup
