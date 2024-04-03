@@ -66,7 +66,11 @@ When installing (by booting from the just created USB drive) choose these option
 Previous version of this guide contianed bad advise, the partition/subvolume scheme "Guided setup" suggested by the installer is quite good.
 Make sure to "Enable Disk Encryption" and (not quite sure about this) "Enable Logical Volumen Management (LVM)", as explained [in this article](https://en.opensuse.org/SDB:Encrypted_root_file_system).
 
+Check the box for "Propose Separate Home LVM logincal Volume" and choose `Ext4` as a filesystem.
+
 I had to [read this document](https://en.opensuse.org/SDB:BTRFS) in order to find out how to setup Btrfs properly (basically to understand that the suggested layour by the "Guided setup" is really good).
+
+Leave "Propose Separate Swap" checked (if you want to be able to suspend/hibernate you can check than option as well).
 
 This setup put the home folder on a separate partion which makes keeping your home files while reinstalling your system really easy.
 Putting you home folder on a subvolume of the Btrfs partition has the advantage that the disk space is then shared between all the Btrfs partition's subvolumes and the supervolume, at the expence of making reinstalling-while-keeping-the-home-folder a bit more tricky (you need to wipe the non-home subvolumes and snapshot by hand before reinstalling).
