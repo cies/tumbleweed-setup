@@ -104,32 +104,6 @@ Since I like to use that `/usr/local` for installing software as a normal user t
 sudo chown -R $USER:$USER /usr/local/bin /usr/local/share /usr/local/src
 ```
 
-## Current laptop's issue: touchpad not working after waking up
-
-Using a *Lenovo Yoga Slim 7 14ARE05* my touchpad does not work after sleep/hibernate, this fixes it when using KDE.
-
-It also fixes [a bug in KDE](https://bugs.kde.org/show_bug.cgi?id=435113) by which mouse settings get lost when unplugging (use `CTRL-L` to activate the lock screen).
-
-```bash
-cat > /usr/local/bin/restart-touchpad.sh << EOF
-#!/bin/sh
-export TOUCHPAD_NAME="\$(xinput list --name-only | grep Touchpad)"
-xinput disable "\$TOUCHPAD_NAME" && xinput enable "\$TOUCHPAD_NAME"
-export USB_MOUSE_NAME="\$(xinput list --name-only | grep 'USB Optical Mouse')"
-xinput set-prop "\$USB_MOUSE_NAME" 287 1
-xinput set-prop "\$USB_MOUSE_NAME" 298 0.2
-EOF
-chmod +x /usr/local/bin/restart-touchpad.sh
-cat > ~/.config/ksmserver.notifyrc << EOF
-[Event/unlocked]
-Action=Execute
-Execute=/usr/local/bin/restart-touchpad.sh
-Logfile=
-Sound=
-TTS=
-EOF
-```
-
 **NOTE**: Finding a non-KDE-specific solution is not easy as requires the use of systemd's system-wide services (only those have access to the suspend and hibernate targets), while the system-wide services cannot access Xorg since the `XAUTHORITY` env var is not set (and on modern machines it can no longer be expected to be at `~/.Xauthority`.
 
 
