@@ -51,13 +51,17 @@ Find one that fits your screen (so it looks crisp), put it in `~/Pictures/wallpa
 * And in `System Settings` > `Global Theme` > `Logion Screen (SDDM)` > pick "Breeze" > click the "Change Background" icon > `Load From File...`
 
 
-## Set up the panel with the *System Load Viewer* widget
+## Set up the panel
+
+### Add the *System Load Viewer* widget
 
 **NOTE**: This widget is not yet ported to Plasma 6.
 
 Switch the start menu to "Application menu" (right-click on the SUSE lizzard logo in bottom-left > `Show Alternatives...`).
 
 Add the following widget/applets/plasmoids to the panel though `Add Widgets...` > `Get New Widgets...` > `Download New Plasma Widgets`: *System Load Viewer*.
+
+### Other panel configuration
 
 From left to right:
 * Application Menu
@@ -123,32 +127,8 @@ Disable all configurations for Screen Edges.
 
 Set `Time`, `Measurements`, `Paper Size` and `Phone Numbers` to `C` (instead of `American English`).
 
-
-### Workspace > Workspace Behavior and Window Management
-
-```bash
-cat > ~/.config/kwinrc << EOF 
-[Compositing]
-AnimationSpeed[$d]
-OpenGLIsUnsafe=false
-[Effect-windowview]
-BorderActivateAll=9
-[Plugins]
-diminactiveEnabled=true
-kwin4_effect_dimscreenEnabled=true
-[TabBox]
-LayoutName=compact
-EOF
-```
-
-To set:
-* Workspace > Workspace Behavior
-  * Desktop effects > Dim inactive and Dim for root privs
-  * Screen Edges > remove the actions from corners and edges
-* Workspace > Window Management:
-  * Task Switcher > Main tab > Pick "Compact" from the top-left dropdown menu
   
-### Workspace > Shortcuts > Global Shortcuts
+## Set up some global Shortcuts
 
 ```bash
 sed -i 's/^display=Display.*/display=Display,Display\tMeta+P,Switch Display/' ~/.config/kglobalshortcutsrc
@@ -168,50 +148,6 @@ To set:
   * Audio Volume > Alternates for: Mute/Decrease/Increase Volume to `META`-`0`/`-`/`=` (meta being the WIN key)
   * Media Controller > Play/Pause media playback to `META`-`p`
   * Power Management > Alternates for: Increase/Decrease Screen Brightness to `META`-`[`/`]`
-
-### Workspace > Startup and Shutdown > Background Services
-
-Disable background services that I consider unneeded:
-* SMB Watcher
-* Wacom Tablet
-* Thunderbolt device monitor
-* Write Daemon
-
-### Workspace > Startup and Shutdown
-
-  * Login Screen (SDDM) > Theme > Breeze (top one will do) > Background (click the button)
-  * Splash Screen > None
-  
-### Personalization > Regional Settings
-
-```bash
-cat > ~/.config/plasma-localerc << EOF
-[Formats]
-LANG=C
-LC_MEASUREMENT=C
-LC_MONETARY=C
-LC_NUMERIC=en_US.UTF-8
-LC_TIME=C
-EOF
-```
-
-To be slightly less US-centric, and prefer 24h time format over the AM/PM-style. Though keep the thousands separators in for big numbers.
-
-### Death to the bouncy busy pointer
-
-By default KDE shows a horrible animation besides the pointer when you start a program.
-
-```bash
-cat > ~/.config/klaunchrc << EOF 
-[BusyCursorSettings]
-Bouncing=false
-[FeedbackStyle]
-BusyCursor=false
-EOF
-```
-
-To set:
-* Personalization > Applications > Launch Feedback > No feedback
 
 
 ## Konsole
