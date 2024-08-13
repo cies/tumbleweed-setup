@@ -3,8 +3,14 @@
 Some tools that are not installed by default:
 
 ```
-sudo zypper install kompare ktorrent kolourpaint kturtle
+sudo zypper install kompare ktorrent kolourpaint kturtle filelight
 ```
+
+* `kompare` for a visual diff tool (IntelliJ has a good one, but sometimes you are nto in IntelliJ)
+* `ktorrent` as torrents are awesome
+* `kolourpaint` is the simple tool for image manipulation (think the good old MSPaint)
+* `kturtle` educaitonal software akin to LOGO I wrote
+* `filelight` visualizes diskspace
 
 
 ## Setup the keyboard mapping
@@ -62,14 +68,16 @@ This makes it easy to [migrate wifi passwords to another system](../wifi-passwor
 
 ## Changing the wallpaper
 
-Find one, put it in `~/Pictures/wallpaper` and use both for:
+Find one that fits your screen (so it looks crisp), put it in `~/Pictures/wallpaper` and use both for:
 
-* The current display's background
+* Display and lock screen backgrounds: right click the the image > `Set as Wallpaper` > `Both`
 * Any other backgrounds for displays you may have plugged in
-* And in `System Settings` > `Security & Privacy` > `Screen Locking` > `Appearance` > `Configure...`
+* And in `System Settings` > `Global Theme` > `Logion Screen (SDDM)` > pick "Breeze" > click the "Change Background" icon > `Load From File...`
 
 
 ## Set up the panel with the *System Load Viewer* widget
+
+**NOTE**: This widget is not yet ported to Plasma 6.
 
 Switch the start menu to "Application menu" (right-click on the SUSE lizzard logo in bottom-left > `Show Alternatives...`).
 
