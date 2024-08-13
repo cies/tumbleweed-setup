@@ -56,6 +56,10 @@ Where `X` is the number of the just created extra partition (use `lsblk` to find
 
 ## Running the installer
 
+To boot from the USB drive you need to get into the "BIOS' boot menu". Usually you need to pres `F2` or `F12` or `Esc` or `Del` repeatedly after the computer was switched on.
+
+For the [Dell Latitude 7420](./device-specific/dell-latitude-7420.md) it is a bit harder to boot from USB; follow the link for more info.
+
 When installing (by booting from the just created USB drive) choose these options:
 
 * Keyboard layout variant: US
