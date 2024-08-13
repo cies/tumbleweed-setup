@@ -1,4 +1,4 @@
-# IDEs
+# JetBrains IDEs
 
 **NOTE**: The `/usr/local/bin` and `/usr/local/share` path should be writable for the user as per instruction in the top level README.
 
