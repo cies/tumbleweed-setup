@@ -10,7 +10,7 @@ sudo zypper install kompare ktorrent kolourpaint kturtle filelight
 * `ktorrent` as torrents are awesome
 * `kolourpaint` is the simple tool for image manipulation (think the good old MSPaint)
 * `kturtle` educaitonal software akin to LOGO I wrote
-* `filelight` visualizes diskspace
+* `filelight` visualizes usage of disk space
 
 
 ## Setup the keyboard mapping
@@ -24,30 +24,6 @@ Options=caps:ctrl_modifier,compose:ralt,ctrl:swap_rwin_rctl
 ResetOldOptions=true
 EOF
 ```
-
-## Setup touchpad and mouse
-
-This set both up for inverted "natural" scrolling (scrolling with mouse and touchpad in the same direction as a swipe scroll), increases the acceleration and increase the pointer size.
-
-```bash
-cat > ~/.config/touchpadxlibinputrc << EOF
-[$(xinput list --name-only | grep Touchpad)]
-clickMethodAreas=false
-clickMethodClickfinger=true
-horizontalScrolling=true
-naturalScroll=true
-pointerAcceleration=0.2
-EOF
-cat > ~/.config/kcminputrc << EOF
-[Mouse]
-X11LibInputXAccelProfileFlat=false
-XLbInptNaturalScroll=true
-XLbInptPointerAcceleration=0.2
-cursorSize=36
-EOF
-```
-
-**NOTE**: In the main README a script is set up to run after each unlock event to re-enable the touchpad (which is disabled somehow on my machine) and to re-apply the mouse settings above as they get lost (when unplugged).
 
 
 ## Disable KWallet
@@ -108,6 +84,46 @@ Configure the *Digital Clock* (right-click the widget and choose "Configure Digi
 
 ## System Settings
 
+### Input & Output > Mouse & Touchpad
+
+Set both to mouse and touchpad inverted "natural" scrolling (scrolling with mouse and touchpad in the same direction as a swipe scroll) and increase the pointer speed to `0.2`.
+
+Disable all configurations for Screen Edges.
+
+### Colors & Themes > Global Theme
+
+* Colors
+  * Pick `Breeze Dark`
+* Plasma Style
+  * Pick `Breeze`
+* Windows Decorations
+  * Edit ("pen" icon) the `Breeze` theme
+    * On the `Shadows and Outline` tab
+      * Set shadow size to `Very Large`
+      * Set the shadow color to `#00aaff`
+      * Set outline intensity to `Medium`
+* Cursors
+  * Click button `Configure Launch Feedback...`
+    * Set sursor feedback to `None`
+* Splash Screen
+  * Pick `None`
+* Login Screen (SDDM)
+  * You should have already picked `Breeze` and set the backgroun to the same image as the wallpaper and the lock screen.
+
+### Apps & Windows > Window Management
+
+* Task Switcher
+  * On the `Main` tab pick `Compact` (instead of `Thumbnail Grid`)
+* Desktop Effect
+  * Enable `Dim Inactive` and `Dim Screen for Administrator Mode`
+* Virtual Desktops
+  * Keep only one
+
+### Language & Time > Region & Language
+
+Set `Time`, `Measurements`, `Paper Size` and `Phone Numbers` to `C` (instead of `American English`).
+
+
 ### Workspace > Workspace Behavior and Window Management
 
 ```bash
@@ -128,7 +144,6 @@ EOF
 To set:
 * Workspace > Workspace Behavior
   * Desktop effects > Dim inactive and Dim for root privs
-  * Screen Locking > Appearance > Add Image... (if not already in the list by now)
   * Screen Edges > remove the actions from corners and edges
 * Workspace > Window Management:
   * Task Switcher > Main tab > Pick "Compact" from the top-left dropdown menu
