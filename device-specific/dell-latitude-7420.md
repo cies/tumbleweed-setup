@@ -51,12 +51,22 @@ Sources:
 ## Powermanagent
 
 There seems to be a problem (according to reports) that power management on this device is not working well.
-I've not been able to confirm this...
+I've been able to confirm this.
 
-More about that here:
+A respected colleague came up with this "easy yet pertial fix" for OpenSUSE:
 
-https://github.com/intel/thermal_daemon/issues/341
+```bash
+sudo zypper install thermald
+sudo systemctl enable thermald.service
+```
 
+But there's more performance to be squeezed out of this machine... The story continues...
+
+Some pointers here:
+
+* https://github.com/intel/thermal_daemon/issues/341
+* https://unix.stackexchange.com/questions/630535/thermal-throttling-on-i7-1185g7
+* https://www.dell.com/community/en/conversations/latitude/latitude-542074207520-cpu-throttling-issue-on-linux/647f94baf4ccf8a8de71684e
 
 
 
