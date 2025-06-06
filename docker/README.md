@@ -15,6 +15,6 @@ And:
 sudo gpasswd -a $USER docker
 ```
 
-The group changes require a restart (or a new shell with `newgrp docker`, this will be bash though).
+The group changes **require a restart** (or a new shell with `newgrp docker`, this will be bash though).
 
 Subsequently demonstrate it all works with: `docker run hello-world`
