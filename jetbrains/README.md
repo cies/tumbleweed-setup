@@ -4,7 +4,7 @@ The `/opt` path should be writable, as we use that location to install JetBrains
 
 ```bash
 sudo mkdir /opt/jetbrains
-sudo chmod $USER:$USER /opt/jetbrains
+sudo chown $USER:$USER /opt/jetbrains
 ```
 
 I'm on the IntelliJ camp. Since I likely have more than one JetBrains IDE installed, I manage them with [Jetbrains Toolbox](https://www.jetbrains.com/toolbox-app). Follow the link to download the `tar.gz` package.
