@@ -15,8 +15,8 @@ Currently the JetBrains Toolbox does not work on Wayland. So the first bit shoul
 cp jetbrains-toolbox-*.tar.gz /opt/jetbrains
 cd /opt/jetbrains
 tar xvzf jetbrains-toolbox-*.tar.gz
-rm jetbrains-toolbox-*.tar.gz```bash
-sudo zypper install libgthread-2_0-0
+rm jetbrains-toolbox-*.tar.gz
+sudo zypper -n install libgthread-2_0-0
 ./jetbrains-toolbox-*/jetbrains-toolbox
 ```
 
@@ -26,31 +26,6 @@ Also disable autostart on startup for the Toolbox in (click gear icon -> Setting
 
 Now you may install the JetBrains products you want using the Toolbox app.
 
-
-<!--
-
-```bash
-cd /usr/local/bin
-wget -cO jetbrains-toolbox.tar.gz "https://data.services.jetbrains.com/products/download?platform=linux&code=TBA"
-tar -xzf jetbrains-toolbox.tar.gz
-DIR=$(find . -maxdepth 1 -type d -name jetbrains-toolbox-\* -print | head -n1)
-mv $DIR/jetbrains-toolbox .
-rmdir $DIR
-./jetbrains-toolbox
-```
-
-When it runs click the bolt-shaped icon and choose `Settings` to:
-
-* Disable "Launch Toolbox App at system startup", to conserve valuable resources
-* Improve privacy by disabling "Send anonymous usage statistics to JetBrains"
-* Set the "Tools install location" (I rather not have 3rd party binaries in my home dir) to: `/usr/local/share/JetBrains/Toolbox` and click `Apply`
-* Set the "Shell scrips location" to: `/usr/local/bin` and click `Apply`
-
-And install you IDE of choice. I do *IntellJ IDEA Community Edition*.
-
-When done downloading close the app by clicking the bolt-shaped icon and choosing `Quit` or `CTRL-Q`.
-
--->
 
 ### Alternative: Download and install from `tar.gz` packages
 
