@@ -26,9 +26,12 @@ sudo firewall-cmd --zone=public --add-service=mdns
 
 Running `avahi-browse -at` again then showed several sevices.
 
-I then started *YaST Printer*, had it install some driver packages, selected a printer and a driver by the same name and I was good to go.
+Then go to KDE's *System Settings > Printers*. It should show the printer(s) that are advertised with Bonjour on the local network.
+Pick the one you want to install, click the "Select default driver" button.
 
-Finally I close the firewall for *Bonjour* with:
+Once the printer is installed, you may try to print a test page on that printer.
+
+If printing the test page went well, close the firewall for *Bonjour* with:
 
 ```bash
 sudo firewall-cmd --zone=public --remove-service=mdns
